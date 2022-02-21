@@ -1,7 +1,8 @@
 import { doc, setDoc } from 'firebase/firestore'
 import database from '../firebase-config'
+import { AiOutlineClose } from 'react-icons/ai'
 
-const Task = ({ task })=>{
+const Task = ({ task,handleDelete })=>{
     const handleEdit = async (id)=>{
         const docRef = doc(database,"tasks",id)
         const payload = {...task,reminder:!task.reminder}
@@ -11,8 +12,10 @@ const Task = ({ task })=>{
         <ul className="tasks">
             <li className={`task ${task.reminder ? "reminder" : "task"}`} onClick={()=>handleEdit(task.id,task)}>
                 <span>{task.task}</span>
-                <span>{task.datetime}</span>
+                <span className='datetime'>{task.datetime}</span>
+                
             </li>
+            <AiOutlineClose className='close-btn' onClick={()=>handleDelete(task.id)}/>
         </ul>
     );
 }

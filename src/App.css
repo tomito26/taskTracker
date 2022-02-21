@@ -46,7 +46,9 @@ header .btn{
 }
 .wrapper .tasks{
   list-style: none;
+  position: relative;
 }
+
 .wrapper .tasks .task{
   font-size: 19px;
   background-color: #f4f4f4;
@@ -55,15 +57,24 @@ header .btn{
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  position: relative;
 }
 .wrapper .task .task span:first-child{
   font-weight: 500;
 
 }
-.task span:last-child{
-  font-size: 17px;
+.task .datetime{
+  font-size: 18px;
   color: #333;
   margin-top: 5px;
+  
+}
+.close-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: red;
+  cursor: pointer;
 }
 .reminder{
   border-left: 5px solid #3E7C17;
